@@ -1,8 +1,6 @@
 inspecode:
 
   ##----------------------------------------------------------------------------
-  ## [on Enterprise]
-  ##   Aborted ... ClangFormat was aborted unexpectedly. (codelift#1747)
   ## [on SaaS (prod)]
   ##   Skipped ... detected no analyzable files in the repository
   ##   + clang-format supports only {C, C++, Objective-C}.
@@ -11,9 +9,11 @@ inspecode:
   ##   Succeeded ... found 271 issues.
   ##   + clang-format supports above and also {C#, Java, JavaScript, TypeScript}.
   ##   + this repository has TypeScript codes.
+  ## [on Enterprise]
+  ##   Aborted ... ClangFormat was aborted unexpectedly. (codelift#1747)
   ##----------------------------------------------------------------------------
-  clang-format: ## for TypeScript (only on staging)
-    thresholds: { num-issues: 271 }
+  #clang-format: ## for TypeScript (only on staging)
+  #  thresholds: { num-issues: 271 }
 
   grep:         ## for any-languages
     thresholds: { num-issues: 11 }
