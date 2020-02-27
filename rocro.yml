@@ -1,5 +1,8 @@
 inspecode:
 
+  clang-format: ## for TypeScript (on Staging only)
+    thresholds: { num-issues: 999 }
+
   grep:         ## for any-languages
     thresholds: { num-issues: 11 }
 
