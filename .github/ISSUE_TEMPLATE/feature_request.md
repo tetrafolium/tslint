@@ -1,7 +1,6 @@
 ---
 name: Feature request
 about: Suggest a non-rule idea for TSLint
-
 ---
 
 ### Feature request

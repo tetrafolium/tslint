@@ -1,7 +1,6 @@
 ---
 name: Rule suggestion
 about: Suggest a new rule for TSLint
-
 ---
 
 ### Rule Suggestion
