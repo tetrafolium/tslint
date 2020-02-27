@@ -1,15 +1,28 @@
 inspecode:
 
-  clang-format: ## for TypeScript (on Staging only)
-    thresholds: { num-issues: 999 }
+  ##----------------------------------------------------------------------------
+  ## [on Enterprise]
+  ##   Aborted ... ClangFormat was aborted unexpectedly. (codelift#1747)
+  ## [on SaaS (prod)]
+  ##   Skipped ... detected no analyzable files in the repository
+  ##   + clang-format supports only {C, C++, Objective-C}.
+  ##   + this repository has no codes written by these languages.
+  ## [on SaaS (staging)]
+  ##   Succeeded ... found 271 issues.
+  ##   + clang-format supports above and also {C#, Java, JavaScript, TypeScript}.
+  ##   + this repository has TypeScript codes.
+  ##----------------------------------------------------------------------------
+  clang-format: ## for TypeScript (only on staging)
+    thresholds: { num-issues: 271 }
 
   grep:         ## for any-languages
     thresholds: { num-issues: 11 }
 
   jscpd:        ## for TypeScript
     thresholds: { num-issues: 75 }
-      # found 75 issues by SaaS edition
-      # found 76 issues by Enterprise edition
+      # found 75 issues, on SaaS (staging)
+      # found 75 issues, on SaaS (prod)
+      # found 76 issues, on Enterprise
 
   misspell:     ## for any-languages
     auto-fix: true
@@ -21,6 +34,9 @@ inspecode:
     # - file ".package.json" has "prettier" key
     auto-fix: true
     thresholds: { num-issues: 284 }
+      # found 285 issues, on SaaS (staging)
+      # found 284 issues, on SaaS (prod)
+      # found 284 issues, on Enterprise
 
   tslint:       ## for TypeScript
     #config-file: tslint.json           # (auto-detect)
