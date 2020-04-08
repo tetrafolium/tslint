@@ -15,6 +15,9 @@ inspecode:
   #clang-format: ## for TypeScript (only on staging)
   #  thresholds: { num-issues: 271 }
 
+  fossology:    ## for any-languages
+    thresholds: { num-issues: 999 }
+
   grep:         ## for any-languages
     thresholds: { num-issues: 11 }
 
