@@ -15,6 +15,9 @@ inspecode:
   #clang-format: ## for TypeScript (only on staging)
   #  thresholds: { num-issues: 271 }
 
+  fossology:    ## for any-languages
+    thresholds: { num-issues: 5 }
+
   grep:         ## for any-languages
     thresholds: { num-issues: 11 }
 
@@ -33,9 +36,8 @@ inspecode:
     # - file ".prettierignore" is referred from "prettier" key in "package.json"
     # - file ".package.json" has "prettier" key
     auto-fix: true
-    thresholds: { num-issues: 284 }
-      # found 285 issues, on SaaS (staging)
-      # found 284 issues, on SaaS (prod)
+    thresholds: { num-issues: 285 }
+      # found 285 issues, on SaaS (staging+prod)
       # found 284 issues, on Enterprise
 
   tslint:       ## for TypeScript
