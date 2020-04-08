@@ -1,8 +1,8 @@
 ### Bug Report
 
-- __TSLint version__:
-- __TypeScript version__:
-- __Running TSLint via__: (pick one) CLI / Node.js API / VSCode / grunt-tslint / Atom / Visual Studio / etc
+-   **TSLint version**:
+-   **TypeScript version**:
+-   **Running TSLint via**: (pick one) CLI / Node.js API / VSCode / grunt-tslint / Atom / Visual Studio / etc
 
 #### TypeScript code being linted
 

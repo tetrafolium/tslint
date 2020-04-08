@@ -1,10 +1,7 @@
 ---
 name: Rule suggestion
 about: Suggest a new rule for TSLint
-
----
-
-### Rule Suggestion
+---### Rule Suggestion
 
 **Is your rule for a general problem or is it specific to your development style?**
 

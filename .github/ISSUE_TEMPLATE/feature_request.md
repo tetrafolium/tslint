@@ -1,10 +1,7 @@
 ---
 name: Feature request
 about: Suggest a non-rule idea for TSLint
-
----
-
-### Feature request
+---### Feature request
 
 **Is your feature request that we implement a new rule?**
 Please use the `Rule Suggestion` template instead
