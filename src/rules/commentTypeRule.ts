@@ -37,7 +37,6 @@ const DIRECTIVE_FAILURE = "triple-slash directives are not allowed";
 
 // Logic
 export class Rule extends Lint.Rules.AbstractRule {
-
     // tslint:disable:object-literal-sort-keys
     public static metadata: Lint.IRuleMetadata = {
         ruleName: "comment-type",
@@ -70,16 +69,15 @@ export class Rule extends Lint.Rules.AbstractRule {
     public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
         return this.applyWithFunction(sourceFile, walk, parseOptions(this.ruleArguments));
     }
-
 }
 
 function walk(ctx: Lint.WalkContext<Options>) {
-    utils.forEachComment(ctx.sourceFile, (fullText, {kind, pos, end}) => {
+    utils.forEachComment(ctx.sourceFile, (fullText, { kind, pos, end }) => {
         if (kind === ts.SyntaxKind.SingleLineCommentTrivia) {
             // directive
             if (fullText.slice(pos, pos + 3) === "///" && !ctx.options.has("directive")) {
                 ctx.addFailure(pos, end, DIRECTIVE_FAILURE);
-            // singleline
+                // singleline
             } else if (fullText.slice(pos, pos + 3) !== "///" && !ctx.options.has("singleline")) {
                 ctx.addFailure(pos, end, SINGLE_LINE_FAILURE);
             }
@@ -87,7 +85,7 @@ function walk(ctx: Lint.WalkContext<Options>) {
             // doc
             if (fullText.slice(pos, pos + 3) === "/**" && !ctx.options.has("doc")) {
                 ctx.addFailure(pos, end, DOC_FAILURE);
-            // multiline
+                // multiline
             } else if (fullText.slice(pos, pos + 3) !== "/**" && !ctx.options.has("multiline")) {
                 ctx.addFailure(pos, end, MULTILINE_FAILURE);
             }

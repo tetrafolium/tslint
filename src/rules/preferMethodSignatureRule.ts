@@ -71,7 +71,7 @@ function walk(ctx: Lint.WalkContext<void>): void {
                     Rule.FAILURE_STRING,
                     type.type === undefined
                         ? undefined
-                        : [Lint.Replacement.replaceNode(node, Rule.METH_SIGN_STRING(node))],
+                        : [Lint.Replacement.replaceNode(node, Rule.METH_SIGN_STRING(node))]
                 );
             }
         }

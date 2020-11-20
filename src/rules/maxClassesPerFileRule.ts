@@ -27,7 +27,6 @@ interface Options {
 const OPTION_EXCLUDE_CLASS_EXPRESSIONS = "exclude-class-expressions";
 
 export class Rule extends Lint.Rules.AbstractRule {
-
     /* tslint:disable:object-literal-sort-keys */
     public static metadata: Lint.IRuleMetadata = {
         ruleName: "max-classes-per-file",
@@ -55,7 +54,10 @@ export class Rule extends Lint.Rules.AbstractRule {
             minLength: 1,
             maxLength: 2,
         },
-        optionExamples: [[true, 1], [true, 5, OPTION_EXCLUDE_CLASS_EXPRESSIONS]],
+        optionExamples: [
+            [true, 1],
+            [true, 5, OPTION_EXCLUDE_CLASS_EXPRESSIONS],
+        ],
         type: "maintainability",
         typescriptOnly: false,
     };
@@ -70,14 +72,18 @@ export class Rule extends Lint.Rules.AbstractRule {
         const argument = this.ruleArguments[0] as number;
         const maxClasses = isNaN(argument) || argument > 0 ? argument : 1;
         return this.applyWithFunction(sourceFile, walk, {
-            excludeClassExpressions: this.ruleArguments.indexOf(OPTION_EXCLUDE_CLASS_EXPRESSIONS) !== -1,
+            excludeClassExpressions:
+                this.ruleArguments.indexOf(OPTION_EXCLUDE_CLASS_EXPRESSIONS) !== -1,
             maxClasses,
         });
     }
 }
 
 function walk(ctx: Lint.WalkContext<Options>): void {
-    const { sourceFile, options: { maxClasses, excludeClassExpressions } } = ctx;
+    const {
+        sourceFile,
+        options: { maxClasses, excludeClassExpressions },
+    } = ctx;
     let classes = 0;
     return ts.forEachChild(sourceFile, function cb(node: ts.Node): void {
         if (isClassDeclaration(node) || (!excludeClassExpressions && isClassExpression(node))) {

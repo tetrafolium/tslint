@@ -325,10 +325,10 @@ function walk(ctx: Lint.WalkContext<Options>) {
                 const nextPos = range.pos + 1;
                 if (
                     options.postbrace &&
-                    (sourceFile.text[nextPos] !== " " &&
-                        sourceFile.text[nextPos] !== "\r" &&
-                        sourceFile.text[nextPos] !== "\t" &&
-                        sourceFile.text[nextPos] !== "\n")
+                    sourceFile.text[nextPos] !== " " &&
+                    sourceFile.text[nextPos] !== "\r" &&
+                    sourceFile.text[nextPos] !== "\t" &&
+                    sourceFile.text[nextPos] !== "\n"
                 ) {
                     addMissingWhitespaceErrorAt(nextPos);
                 }
@@ -357,7 +357,7 @@ function walk(ctx: Lint.WalkContext<Options>) {
         const equalsGreaterThanToken = utils.getChildOfKind(
             node,
             ts.SyntaxKind.EqualsGreaterThanToken,
-            sourceFile,
+            sourceFile
         );
         // condition so we don't crash if the arrow is somehow missing
         if (equalsGreaterThanToken === undefined) {

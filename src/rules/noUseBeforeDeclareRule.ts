@@ -70,7 +70,8 @@ function walk(ctx: Lint.WalkContext<void>, checker: ts.TypeChecker): void {
             case ts.SyntaxKind.ExportSpecifier:
                 return checkIdentifier(
                     (node as ts.ExportSpecifier).name,
-                    checker.getExportSpecifierLocalTargetSymbol(node as ts.ExportSpecifier));
+                    checker.getExportSpecifierLocalTargetSymbol(node as ts.ExportSpecifier)
+                );
             default:
                 return ts.forEachChild(node, recur);
         }
@@ -104,6 +105,10 @@ function walk(ctx: Lint.WalkContext<void>, checker: ts.TypeChecker): void {
      * var { x: y } = { x: 43 };
      */
     function isPropNameInBinding(node: ts.Node): boolean {
-        return node.parent !== undefined && isBindingElement(node.parent) && node.parent.propertyName === node;
+        return (
+            node.parent !== undefined &&
+            isBindingElement(node.parent) &&
+            node.parent.propertyName === node
+        );
     }
 }

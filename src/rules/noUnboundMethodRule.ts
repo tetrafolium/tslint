@@ -80,7 +80,8 @@ export class Rule extends Lint.Rules.TypedRule {
     };
     /* tslint:enable:object-literal-sort-keys */
 
-    public static FAILURE_STRING = "Avoid referencing unbound methods which may cause unintentional scoping of 'this'.";
+    public static FAILURE_STRING =
+        "Avoid referencing unbound methods which may cause unintentional scoping of 'this'.";
 
     public applyWithProgram(sourceFile: ts.SourceFile, program: ts.Program): Lint.RuleFailure[] {
         return this.applyWithFunction(
@@ -89,7 +90,7 @@ export class Rule extends Lint.Rules.TypedRule {
             {
                 ignoreStatic: this.ruleArguments.indexOf(OPTION_IGNORE_STATIC) !== -1,
             },
-            program.getTypeChecker(),
+            program.getTypeChecker()
         );
     }
 }

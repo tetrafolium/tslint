@@ -40,7 +40,9 @@ export class Formatter extends AbstractFormatter {
             const camelizedRule = camelize(failure.getRuleName());
 
             const lineAndCharacter = failure.getStartPosition().getLineAndCharacter();
-            const positionTuple = `(${lineAndCharacter.line + 1},${lineAndCharacter.character + 1})`;
+            const positionTuple = `(${lineAndCharacter.line + 1},${
+                lineAndCharacter.character + 1
+            })`;
             const severity = failure.getRuleSeverity();
 
             return `${fileName}${positionTuple}: ${severity} ${camelizedRule}: ${failureString}`;

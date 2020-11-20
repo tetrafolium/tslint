@@ -32,7 +32,7 @@ const options = {
     fix: false,
     formatter: "json",
     rulesDirectory: "customRules/",
-    formattersDirectory: "customFormatters/"
+    formattersDirectory: "customFormatters/",
 };
 
 const fileContents = fs.readFileSync(fileName, "utf8");
@@ -44,7 +44,7 @@ const result = linter.getResult();
 
 #### JavaScript (ES5)
 
-This code will run directly under Node.js, including if it's called from the command line.  
+This code will run directly under Node.js, including if it's called from the command line.
 
 ```js
 "use strict";
@@ -56,7 +56,7 @@ var options = {
     fix: false,
     formatter: "json",
     rulesDirectory: "customRules/",
-    formattersDirectory: "customFormatters/"
+    formattersDirectory: "customFormatters/",
 };
 var fileContents = fs.readFileSync(fileName, "utf8");
 var linter = new tslint.Linter(options);
