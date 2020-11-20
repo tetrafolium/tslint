@@ -12,8 +12,8 @@ inspecode:
   ## [on Enterprise]
   ##   Aborted ... ClangFormat was aborted unexpectedly. (codelift#1747)
   ##----------------------------------------------------------------------------
-  #clang-format: ## for TypeScript (only on staging)
-  #  thresholds: { num-issues: 271 }
+  clang-format: ## for TypeScript (only on staging)
+    thresholds: { num-issues: 271 }
 
   fossology:    ## for any-languages
     thresholds: { num-issues: 5 }
@@ -32,15 +32,15 @@ inspecode:
     thresholds: { num-issues: 11 }
 
   prettier:     ## for TypeScript
-    #config-file: .prettierrc.json      # (auto-detect)
-    # - file ".prettierignore" is referred from "prettier" key in "package.json"
-    # - file ".package.json" has "prettier" key
+    # config-file: .prettierrc.json      # (auto-detect)
+    #  - file ".prettierignore" is referred from "prettier" key in "package.json"
+    #  - file ".package.json" has "prettier" key
     auto-fix: true
     thresholds: { num-issues: 285 }
       # found 285 issues, on SaaS (staging+prod)
       # found 284 issues, on Enterprise
 
   tslint:       ## for TypeScript
-    #config-file: tslint.json           # (auto-detect)
+    # config-file: tslint.json           # (auto-detect)
     auto-fix: true
     thresholds: { num-issues: 146 }
